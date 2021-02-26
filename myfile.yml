@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion: 2010-09-09
+Metadata:
+  'AWS::CloudFormation::Designer':
+    c2fa7f2d-3f32-46f8-8b78-4633ef12d4f7:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 490
+        'y': 110
+      z: 0
+      embeds: []
+Resources:
+  EKSC3R7AH:
+    Type: 'AWS::EKS::Cluster'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: c2fa7f2d-3f32-46f8-8b78-4633ef12d4f7
+    Condition: HasNot
+Outputs:
+  ExportsStackName:
+    Value: !Ref 'AWS::StackName'
+    Export:
+      Name: !Sub 'ExportsStackName-${AWS::StackName}'
