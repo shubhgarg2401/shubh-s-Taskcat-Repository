@@ -1,10 +1,11 @@
 # shubh-s-Taskcat-Repository
-Repository to run TaskCat Tests on Cloudformation Template
-TITLE
+### Repository to run TaskCat Tests on Cloudformation Template
+---------------
+## TITLE
 
 Running/Testing an EKS Open source CloudFormation Template with  zero cost
 
-DESCRIPTION
+## DESCRIPTION
 
 To solve this challenge I launched an EKS Open Source CloudFormation Template without any resources being Deployed and then tested the template using TASKCAT.
 
@@ -21,13 +22,13 @@ TaskCat uses Python 3 so you will need to install Python, pip (the package insta
 
 Here are the instructions for installing these tools using the Cloud9 terminal:
 
-cd ~/environment
+``cd ~/environment
 sudo yum -y update
 python --version
 curl -O https://bootstrap.pypa.io/get-pip.py
 python3 get-pip.py --user
 sudo pip install --upgrade pip
-pip3 install taskcat --user
+pip3 install taskcat --user ``
 
 
 To verify TaskCat is installed, type taskcat --version from the command line. You should see something like this returned from the command line:
@@ -40,49 +41,50 @@ I created a new GitHub repository by the name “shubh-s-Taskcat-Repository’ t
 Clone the Repository:-
 
 
-cd ~/environment
+``cd ~/environment
 git clone https://github.com/shubhgarg2401/shubh-s-Taskcat-Repository.git
-cd shubh-s-Taskcat-Repository
+cd shubh-s-Taskcat-Repository``
 
 
 
 Create a .taskcat.yml file
 From your Cloud9 terminal, type the following:
-cd ~/environment/shubh-s-Taskcat-Repository
-touch .myfile.yml
+``cd ~/environment/shubh-s-Taskcat-Repository
+touch .myfile.yml``
 
 Create a CloudFormation Template
 
 From your Cloud9 terminal, type the following:
-cd ~/environment/taskcat-example
-touch myfile.yml
+``cd ~/environment/taskcat-example
+touch myfile.yml``
 
 Open the myfile.yml and copy the contents below and save the file.
-AWSTemplateFormatVersion: 2010-09-09
-Metadata:
-  'AWS::CloudFormation::Designer':
-    c2fa7f2d-3f32-46f8-8b78-4633ef12d4f7:
-      size:
-        width: 60
-        height: 60
-      position:
-        x: 490
-        'y': 110
-      z: 0
-      embeds: []
-Resources:
-  EKSC3R7AH:
-    Type: 'AWS::EKS::Cluster'
-    Properties: {}
-    Metadata:
-      'AWS::CloudFormation::Designer':
-        id: c2fa7f2d-3f32-46f8-8b78-4633ef12d4f7
-    Condition: HasNot
-Outputs:
-  ExportsStackName:
-    Value: !Ref 'AWS::StackName'
-    Export:
-      Name: !Sub 'ExportsStackName-${AWS::StackName}'
+ >     AWSTemplateFormatVersion: 2010-09-09
+        Metadata:
+          'AWS::CloudFormation::Designer':
+            c2fa7f2d-3f32-46f8-8b78-4633ef12d4f7:
+              size:
+                width: 60
+                height: 60
+              position:
+                x: 490
+                'y': 110
+              z: 0
+              embeds: []
+        Resources:
+          EKSC3R7AH:
+            Type: 'AWS::EKS::Cluster'
+            Properties: {}
+            Metadata:
+              'AWS::CloudFormation::Designer':
+                id: c2fa7f2d-3f32-46f8-8b78-4633ef12d4f7
+            Condition: HasNot
+        Outputs:
+          ExportsStackName:
+            Value: !Ref 'AWS::StackName'
+            Export:
+              Name: !Sub 'ExportsStackName-${AWS::StackName}'### Features
+			  
  
 Update .taskcat.yml
 
@@ -106,32 +108,33 @@ I used the EKS Open Source CF template to create the template while changing the
 
 THIS IS THE TEMPLATE I USED:(YAML FORMAT)
 
-AWSTemplateFormatVersion: 2010-09-09
-Metadata:
-  'AWS::CloudFormation::Designer':
-    c2fa7f2d-3f32-46f8-8b78-4633ef12d4f7:
-      size:
-        width: 60
-        height: 60
-      position:
-        x: 490
-        'y': 110
-      z: 0
-      embeds: []
-Resources:
-  EKSC3R7AH:
-    Type: 'AWS::EKS::Cluster'
-    Properties: {}
+		
+    AWSTemplateFormatVersion: 2010-09-09
     Metadata:
       'AWS::CloudFormation::Designer':
-        id: c2fa7f2d-3f32-46f8-8b78-4633ef12d4f7
-    Condition: HasNot
-Outputs:
-  ExportsStackName:
-    Value: !Ref 'AWS::StackName'
-    Export:
-      Name: !Sub 'ExportsStackName-${AWS::StackName}'
-
+        c2fa7f2d-3f32-46f8-8b78-4633ef12d4f7:
+          size:
+            width: 60
+            height: 60
+          position:
+            x: 490
+            'y': 110
+          z: 0
+          embeds: []
+    Resources:
+      EKSC3R7AH:
+        Type: 'AWS::EKS::Cluster'
+        Properties: {}
+        Metadata:
+          'AWS::CloudFormation::Designer':
+            id: c2fa7f2d-3f32-46f8-8b78-4633ef12d4f7
+        Condition: HasNot
+    Outputs:
+      ExportsStackName:
+        Value: !Ref 'AWS::StackName'
+        Export:
+          Name: !Sub 'ExportsStackName-${AWS::StackName}'
+    
 
 OUTPUT :
 
@@ -150,7 +153,7 @@ HasNot: !Equals [ 'true', 'false' ]
 RUN TASKCAT
  
 From your Cloud9 terminal, type the following command to run TaskCat against your CloudFormation template.
-taskcat test run
+``taskcat test run``
 
 --------------------------------------------------------------------------------------------
 
